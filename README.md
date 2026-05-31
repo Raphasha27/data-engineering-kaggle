@@ -1,41 +1,41 @@
-# Data Engineering & Kaggle
+# Raphasha27 - Enterprise-Grade Data Engineering & AI Pipeline
 
-[![Python](https://img.shields.io/badge/Python-3.10+-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)]
-[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169e1?style=for-the-badge&logo=postgresql&logoColor=white)]
-[![Pandas](https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white)]
-[![Kaggle](https://img.shields.io/badge/Kaggle-20BEFF?style=for-the-badge&logo=kaggle)](https://kaggle.com/Raphasha27)
+[![CI](https://github.com/Raphasha27/data-engineering-kaggle/actions/workflows/ci.yml/badge.svg)](https://github.com/Raphasha27/data-engineering-kaggle/actions)
+[![CodeQL](https://github.com/Raphasha27/data-engineering-kaggle/actions/workflows/security-scan.yml/badge.svg)](https://github.com/Raphasha27/data-engineering-kaggle/actions)
+[![Dependabot](https://img.shields.io/badge/Dependabot-enabled-blue)](https://github.com/Raphasha27/data-engineering-kaggle)
+[![Python 3.12](https://img.shields.io/badge/python-3.12-blue)](https://python.org)
+[![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
-Collection of data engineering projects (ETL pipelines, API extraction, Spark processing) and Kaggle competition notebooks.
+Comprehensive data engineering projects, production ETL pipelines, and Kaggle competition solutions. Part of the Kirov Dynamics sovereign infrastructure ecosystem.
 
-## Data Engineering Pipelines
+## Projects
 
-| Project | Description | Tech Stack |
-|---------|-------------|------------|
-| [`etl-pipeline/`](etl-pipeline/) | CSV to PostgreSQL ETL with dialect detection, batch processing, data profiling, schema evolution | pandas, SQLAlchemy, psycopg2, config |
-| [`spark-etl/`](spark-etl/) | Distributed PySpark ETL with AQE optimization, Delta Lake/ORC/Avro, streaming, checkpointing | PySpark, Delta Lake, Parquet, ORC |
-| [`api-pipeline/`](api-pipeline/) | REST API data extraction with pagination, rate limiting, auth, transform, load | requests, pandas, SQLAlchemy |
+### ETL Pipelines
+| Project | Tech | Description |
+|---------|------|-------------|
+| [etl-pipeline](etl-pipeline) | Python, PostgreSQL | CSV to PostgreSQL ETL with validation |
+| [spark-etl](spark-etl) | PySpark | Distributed big data processing pipeline |
+| [api-pipeline](api-pipeline) | Python, REST | Public API data extraction with pagination |
 
-## Kaggle Competition Notebooks
-
-All notebooks are published as Kaggle kernels ready to run with data on the Kaggle platform.
-
-| Notebook | Competition | Metric | Approach |
-|----------|-------------|--------|----------|
-| [`titanic-ml/titanic_kaggle.ipynb`](titanic-ml/titanic_kaggle.ipynb) | [Titanic](https://www.kaggle.com/c/titanic) | Accuracy | KNN impute + family survival LOO + GB/XGB ensemble → **78.5%** |
-| [`house-prices/house_prices_kaggle.ipynb`](house-prices/house_prices_kaggle.ipynb) | [House Prices](https://www.kaggle.com/competitions/house-prices-advanced-regression-techniques) | RMSLE | Ridge/Lasso/ElasticNet/GB/XGB, log transform, 70+ features |
-| [`spaceship-titanic/spaceship_titanic_kaggle.ipynb`](spaceship-titanic/spaceship_titanic_kaggle.ipynb) | [Spaceship Titanic](https://www.kaggle.com/competitions/spaceship-titanic) | Accuracy | Cabin parsing, KNN impute, RF/GB/XGB voting ensemble |
-| [`f1-pit-stops/f1_pit_stops_kaggle.ipynb`](f1-pit-stops/f1_pit_stops_kaggle.ipynb) | [F1 Pit Stops](https://www.kaggle.com/competitions/playground-series-s6e5) | ROC AUC | Label encoding, GB/RF/XGB ensemble (Playground S6E5) |
+### Kaggle Competitions
+| Project | Score | Model |
+|---------|-------|-------|
+| [titanic-ml](titanic-ml) | 78.5% | Ensemble (RF, GB, XGB) |
+| [house-prices](house-prices) | - | Ridge/Lasso/GB |
+| [spaceship-titanic](spaceship-titanic) | - | KNN + Ensemble |
+| [f1-pit-stops](f1-pit-stops) | - | ROC AUC Ensemble |
 
 ## Getting Started
-
-To run locally:
 ```bash
-pip install -r titanic-ml/requirements.txt
-python titanic-ml/titanic_kaggle_v6.py   # Best Titanic submission (78.5%)
+git clone https://github.com/Raphasha27/data-engineering-kaggle.git
+cd data-engineering-kaggle
+pip install -r requirements-dev.txt
 ```
 
-Each pipeline has its own README with setup and usage instructions.
+## Infrastructure
+- **CI/CD**: GitHub Actions (lint, test, auto-deploy)
+- **Security**: CodeQL, Dependabot, secret scanning
+- **Quality**: Ruff linting, pre-commit hooks
 
-## Author
-
-**Koketso Raphasha** — [Kaggle](https://kaggle.com/Raphasha27) | [GitHub](https://github.com/Raphasha27) | [Portfolio](https://portfolio-iota-eight-90.vercel.app/)
+## License
+MIT
