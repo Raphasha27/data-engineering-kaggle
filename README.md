@@ -5,8 +5,8 @@
 [![Dependabot](https://img.shields.io/badge/Dependabot-enabled-blue)](https://github.com/Raphasha27/data-engineering-kaggle)
 [![Python 3.12](https://img.shields.io/badge/python-3.12-blue)](https://python.org)
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
-[![Gumroad](https://img.shields.io/badge/Buy_ETL_Pro-$20-FF90E8?logo=gumroad&style=flat)](https://raphashakoketso.gumroad.com/l/etl-pipeline-pro)
-[![Gumroad](https://img.shields.io/badge/Kaggle_Bundle-$10-FF90E8?logo=gumroad&style=flat)](https://raphashakoketso.gumroad.com/l/titanic-ml-bundle)
+[![Gumroad](https://img.shields.io/badge/ETL_Pipeline_Suite-$45-FF90E8?logo=gumroad&style=flat)](https://raphashakoketso.gumroad.com/l/etl-pipeline-suite)
+[![Gumroad](https://img.shields.io/badge/AI_Agent_Framework-FREE-FF90E8?logo=gumroad&style=flat)](https://raphashakoketso.gumroad.com/l/ai-agent-blueprint)
 
 Comprehensive data engineering projects, production ETL pipelines, and Kaggle competition solutions. Part of the Kirov Dynamics sovereign infrastructure ecosystem.
 
