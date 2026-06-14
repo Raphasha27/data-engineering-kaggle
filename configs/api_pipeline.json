@@ -1,0 +1,23 @@
+{
+  "_meta": {
+    "version": "2.0",
+    "description": "Example API pipeline config for REST API extraction"
+  },
+  "source": "https://api.restful-api.dev/objects",
+  "output": "data/api_output.parquet",
+  "rate_limit": 0.5,
+  "timeout": 30,
+  "strict": false,
+  "pagination": {
+    "type": "page",
+    "param": "page",
+    "size_param": "per_page",
+    "size": 100,
+    "max_pages": 10,
+    "results_path": ""
+  },
+  "transforms": {
+    "_add_metadata": true,
+    "_normalize_strings": true
+  }
+}

@@ -29,13 +29,41 @@ Comprehensive data engineering projects, production ETL pipelines, and Kaggle co
 ```bash
 git clone https://github.com/Raphasha27/data-engineering-kaggle.git
 cd data-engineering-kaggle
-pip install -r requirements-dev.txt
+pip install -e ".[dev]"
+```
+
+### Docker
+```bash
+docker compose up
+```
+Starts PostgreSQL + runs the ETL pipeline. Jupyter available at `http://localhost:8888`.
+
+### Tests
+```bash
+pytest tests/ -v --cov=src
+```
+
+## Project Structure
+```
+├── etl-pipeline/          # CSV → PostgreSQL ETL
+├── spark-etl/             # Distributed PySpark pipeline
+├── api-pipeline/          # REST API extraction pipeline
+├── titanic-ml/            # Kaggle Titanic (v2-v7, 78.5%)
+├── data-quality/          # Data quality monitoring
+├── house-prices/          # House Prices competition
+├── spaceship-titanic/     # Spaceship Titanic competition
+├── f1-pit-stops/          # F1 Pit Stops analysis
+├── orchestration/         # Airflow DAGs
+├── configs/               # Pipeline config examples
+├── tests/                 # Unit tests
+├── Dockerfile / docker-compose.yml
+└── pyproject.toml
 ```
 
 ## Infrastructure
-- **CI/CD**: GitHub Actions (lint, test, auto-deploy)
-- **Security**: CodeQL, Dependabot, secret scanning
-- **Quality**: Ruff linting, pre-commit hooks
+- **CI/CD**: GitHub Actions (lint, test, notebook validation, Docker build)
+- **Security**: CodeQL, Dependabot, secret scanning, safety check
+- **Quality**: Ruff linting, pytest, pre-commit hooks
 
 ## License
 MIT

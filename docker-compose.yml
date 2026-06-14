@@ -1,0 +1,44 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: data_engineering
+      POSTGRES_USER: de_user
+      POSTGRES_PASSWORD: de_pass
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U de_user -d data_engineering"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  etl-pipeline:
+    build:
+      context: .
+      target: base
+    command: python etl-pipeline/etl_pipeline.py --config configs/etl_pipeline.json
+    environment:
+      DB_URL: postgresql://de_user:de_pass@postgres:5432/data_engineering
+    depends_on:
+      postgres:
+        condition: service_healthy
+    volumes:
+      - ./data:/app/data
+      - ./configs:/app/configs
+
+  jupyter:
+    build:
+      context: .
+      target: base
+    ports:
+      - "8888:8888"
+    command: jupyter notebook --ip=0.0.0.0 --port=8888 --no-browser --allow-root --NotebookApp.token=''
+    volumes:
+      - ./notebooks:/app/notebooks
+      - ./data:/app/data
+
+volumes:
+  pgdata:
