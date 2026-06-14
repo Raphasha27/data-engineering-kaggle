@@ -1,0 +1,39 @@
+{
+  "products": [
+    {
+      "slug": "kaggle-titanic-bundle",
+      "name": "Titanic ML Competition Bundle",
+      "price": 10,
+      "description": "6 model iterations (v2-v7), ensemble pipeline, 78.5% accuracy. Jupyter notebooks + Python scripts.",
+      "gumroad_url": "https://raphashakoketso.gumroad.com/l/titanic-ml-bundle"
+    },
+    {
+      "slug": "etl-pipeline-pro",
+      "name": "ETL Pipeline Pro",
+      "price": 20,
+      "description": "Production-grade ETL: CSV, Spark, API pipelines + Docker + Airflow + tests.",
+      "gumroad_url": "https://raphashakoketso.gumroad.com/l/etl-pipeline-pro"
+    },
+    {
+      "slug": "data-quality-toolkit",
+      "name": "Data Quality Toolkit",
+      "price": 10,
+      "description": "Automated data validation: completeness, uniqueness, outliers, quality scoring.",
+      "gumroad_url": "https://raphashakoketso.gumroad.com/l/data-quality-toolkit"
+    },
+    {
+      "slug": "ai-agent-core",
+      "name": "AI-Agent Orchestration Framework",
+      "price": 25,
+      "description": "Multi-agent orchestration with FastAPI, React dashboard, vector memory, and tool execution.",
+      "gumroad_url": "https://raphashakoketso.gumroad.com/l/ai-agent-core"
+    },
+    {
+      "slug": "ironclad-sandbox",
+      "name": "Ironclad Sandbox — Secure Code Execution",
+      "price": 30,
+      "description": "3000x faster than Docker. Rust-backed secure AI agent code execution engine.",
+      "gumroad_url": "https://raphashakoketso.gumroad.com/l/ironclad-sandbox"
+    }
+  ]
+}
