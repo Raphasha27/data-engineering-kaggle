@@ -5,6 +5,8 @@
 [![Dependabot](https://img.shields.io/badge/Dependabot-enabled-blue)](https://github.com/Raphasha27/data-engineering-kaggle)
 [![Python 3.12](https://img.shields.io/badge/python-3.12-blue)](https://python.org)
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
+[![Gumroad](https://img.shields.io/badge/ETL_Pipeline_Suite-$45-FF90E8?logo=gumroad&style=flat)](https://raphashakoketso.gumroad.com/l/etl-pipeline-suite)
+[![Gumroad](https://img.shields.io/badge/AI_Agent_Framework-FREE-FF90E8?logo=gumroad&style=flat)](https://raphashakoketso.gumroad.com/l/ai-agent-blueprint)
 
 Comprehensive data engineering projects, production ETL pipelines, and Kaggle competition solutions. Part of the Kirov Dynamics sovereign infrastructure ecosystem.
 
@@ -29,13 +31,41 @@ Comprehensive data engineering projects, production ETL pipelines, and Kaggle co
 ```bash
 git clone https://github.com/Raphasha27/data-engineering-kaggle.git
 cd data-engineering-kaggle
-pip install -r requirements-dev.txt
+pip install -e ".[dev]"
+```
+
+### Docker
+```bash
+docker compose up
+```
+Starts PostgreSQL + runs the ETL pipeline. Jupyter available at `http://localhost:8888`.
+
+### Tests
+```bash
+pytest tests/ -v --cov=src
+```
+
+## Project Structure
+```
+├── etl-pipeline/          # CSV → PostgreSQL ETL
+├── spark-etl/             # Distributed PySpark pipeline
+├── api-pipeline/          # REST API extraction pipeline
+├── titanic-ml/            # Kaggle Titanic (v2-v7, 78.5%)
+├── data-quality/          # Data quality monitoring
+├── house-prices/          # House Prices competition
+├── spaceship-titanic/     # Spaceship Titanic competition
+├── f1-pit-stops/          # F1 Pit Stops analysis
+├── orchestration/         # Airflow DAGs
+├── configs/               # Pipeline config examples
+├── tests/                 # Unit tests
+├── Dockerfile / docker-compose.yml
+└── pyproject.toml
 ```
 
 ## Infrastructure
-- **CI/CD**: GitHub Actions (lint, test, auto-deploy)
-- **Security**: CodeQL, Dependabot, secret scanning
-- **Quality**: Ruff linting, pre-commit hooks
+- **CI/CD**: GitHub Actions (lint, test, notebook validation, Docker build)
+- **Security**: CodeQL, Dependabot, secret scanning, safety check
+- **Quality**: Ruff linting, pytest, pre-commit hooks
 
 ## License
 MIT

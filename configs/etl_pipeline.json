@@ -1,0 +1,21 @@
+{
+  "_meta": {
+    "version": "2.0",
+    "description": "Example ETL pipeline config for CSV to PostgreSQL"
+  },
+  "input": "data/sample.csv",
+  "table": "sales",
+  "db_url": "${DB_URL}",
+  "batch_size": 5000,
+  "strict_mode": false,
+  "fallback_path": "output/sales_output.parquet",
+  "schema": {
+    "id": {"dtype": "int64", "nullable": false},
+    "name": {"dtype": "object", "nullable": false},
+    "amount": {"dtype": "float64", "min": 0},
+    "date": {"dtype": "object"}
+  },
+  "impute": {
+    "amount": 0.0
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "_meta": {
+    "version": "2.0",
+    "description": "Example Spark ETL config for distributed processing"
+  },
+  "input": "data/input/",
+  "output": "data/output/",
+  "master": "local[*]",
+  "output_format": "parquet",
+  "write_mode": "overwrite",
+  "partition_by": ["year", "month"],
+  "dedup_keys": ["id", "timestamp"],
+  "expected_columns": ["id", "name", "amount", "timestamp"],
+  "transform": {
+    "add_date_parts": true,
+    "categorize": {
+      "amount": {
+        "low": {"rules": [{"lt": 100}]},
+        "medium": {"rules": [{"between": [100, 1000]}]},
+        "high": {"rules": [{"between": [1000, 100000]}]}
+      }
+    }
+  },
+  "load_stats_table": true,
+  "spark_conf": {
+    "spark.sql.adaptive.enabled": "true",
+    "spark.sql.adaptive.coalescePartitions.enabled": "true",
+    "spark.sql.adaptive.skewJoin.enabled": "true",
+    "spark.sql.shuffle.partitions": "200"
+  }
+}
