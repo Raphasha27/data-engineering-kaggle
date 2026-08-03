@@ -201,7 +201,7 @@ class APIDataPipeline:
 
         if transforms.get("_add_metadata", True):
             df["_pipeline_loaded_at"] = datetime.utcnow()
-            df["_pipeline_batch"] = hashlib.md5(str(time.time()).encode()).hexdigest()[:8]
+            df["_pipeline_batch"] = hashlib.md5(str(time.time()).encode(), usedforsecurity=False).hexdigest()[:8]
 
         if transforms.get("_normalize_strings", True):
             for col in df.select_dtypes(include=["object"]).columns:

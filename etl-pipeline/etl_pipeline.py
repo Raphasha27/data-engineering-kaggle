@@ -194,7 +194,7 @@ class ETLPipeline:
                 pass
 
         df["_etl_loaded_at"] = datetime.utcnow()
-        df["_etl_batch_id"] = hashlib.md5(str(time.time()).encode()).hexdigest()[:12]
+        df["_etl_batch_id"] = hashlib.md5(str(time.time()).encode(), usedforsecurity=False).hexdigest()[:12]
         hash_cols = [c for c in df.columns if c not in ("_etl_loaded_at", "_etl_batch_id", "_etl_hash")]
         df["_etl_hash"] = df[hash_cols].apply(
             lambda row: hashlib.sha256(str(row.to_dict()).encode()).hexdigest(), axis=1
